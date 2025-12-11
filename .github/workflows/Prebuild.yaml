@@ -2,8 +2,9 @@ name: Pre-Build Components
 
 on:
   push:
-    branches:
-      - '*'
+
+env:
+  REGISTRY: ghcr.io
 
 jobs:
   define-components:
@@ -29,7 +30,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Diploi build
-        uses: diploi/action-build@v1.7-alpha
+        uses: diploi/action-build@v1
         with: ${{ matrix }}
         env:
           registry: ${{ env.REGISTRY }}
