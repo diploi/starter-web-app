@@ -21,6 +21,8 @@ jobs:
   run-builds:
     name: Build ${{ matrix.name }} ${{ matrix.stage }}
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     needs: define-components
     strategy:
       fail-fast: false
