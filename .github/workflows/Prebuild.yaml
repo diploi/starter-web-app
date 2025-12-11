@@ -33,6 +33,7 @@ jobs:
         uses: diploi/action-build@v1.8
         with: ${{ matrix }}
         env:
+          project: ${{ github.repository }}
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
