@@ -16,5 +16,5 @@ components:
   - name: Supabase
     identifier: supabase
     package: https://github.com/diploi/component-supabase#v2025.06
-    prebuildImage: ghcr.io/diploi/component-supabase/supabase:[tag]
+    prebuildImage: ghcr.io/diploi/starter-react/supabase:[tag]
 addons: []
