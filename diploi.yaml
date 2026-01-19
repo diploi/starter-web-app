@@ -11,7 +11,7 @@ components:
     prebuildImage: ghcr.io/diploi/starter-react/react:[tag]
     env:
       include:
-        - supabase.REST_INTERNAL_URL:SUPABASE_URL
+        - supabase.APP_ENDPOINT:SUPABASE_URL
         - supabase.ANON_KEY:SUPABASE_ANON_KEY
   - name: Supabase
     identifier: supabase
