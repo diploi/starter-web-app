@@ -15,6 +15,6 @@ components:
         - supabase.ANON_KEY:SUPABASE_ANON_KEY
   - name: Supabase
     identifier: supabase
-    package: https://github.com/diploi/component-supabase#v2025.06
+    package: https://github.com/diploi/component-supabase#v2026.01
     prebuildImage: ghcr.io/diploi/starter-react/supabase:[tag]
 addons: []
