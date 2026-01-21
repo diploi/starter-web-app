@@ -124,25 +124,32 @@ export function Welcome() {
 
           <Section title="Environment variables (ENV) & secrets">
             <p>
-              Diploi injects environment values automatically. Components (like
-              Supabase) provide connection details that your app can use
-              immediately.
+              Each component's own environment variables are injected
+              automatically. Values from other components can be imported via{' '}
+              <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-[0.9em]">
+                diploi.yaml
+              </code>
+              .
+            </p>
+            <p className="mt-3">
+              In this starter kit, connection details from the Supabase
+              component are already imported to make integration easy.
             </p>
             <ul className="mt-3 list-disc pl-5">
               <li>
-                Find available values in the Diploi dashboard "Options" tab.
+                See & edit values in the Diploi dashboard's "Options" tab.
               </li>
               <li className="mt-2">
-                In Vite, access client-exposed values via{' '}
+                In Vite, use the provided{' '}
                 <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-[0.9em]">
-                  import.meta.env
-                </code>
-                .
+                  useEnv.ts
+                </code>{' '}
+                helper to access runtime environment variables.
               </li>
             </ul>
           </Section>
 
-          <Section title="Supabase-powered todo list">
+          <Section title="Next steps, powered by ⚡ Supabase">
             <SupabaseTodoDemo />
           </Section>
 
@@ -177,31 +184,10 @@ export function Welcome() {
               setup.
             </p>
           </Section>
-
-          <Section title="Next steps">
-            <ol className="list-decimal pl-5">
-              <li className="mt-2">
-                Edit the frontend and watch changes apply.
-              </li>
-              <li className="mt-2">
-                Open{' '}
-                <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-[0.9em]">
-                  diploi.yaml
-                </code>{' '}
-                and explore the components.
-              </li>
-              <li className="mt-2">
-                Skim the docs when you're ready:{' '}
-                <ExtLink href="https://docs.diploi.com/">
-                  docs.diploi.com
-                </ExtLink>
-              </li>
-            </ol>
-          </Section>
         </div>
 
         <footer className="mt-10 text-xs text-zinc-500">
-          Built with a Diploi starter kit. Customize this page freely.
+          Built with a Diploi 🚀 starter kit. Customize this page freely.
         </footer>
       </div>
     </main>
