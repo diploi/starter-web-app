@@ -5,7 +5,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from 'react-router';
 import { loader } from './lib/useEnv';
 
@@ -28,10 +27,6 @@ export const links: Route.LinksFunction = () => [
 export { loader };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { env } = useLoaderData<typeof loader>();
-
-  console.log('env', env);
-
   return (
     <html lang="en">
       <head>

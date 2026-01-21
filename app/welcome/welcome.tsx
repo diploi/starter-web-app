@@ -22,14 +22,38 @@ function ExtLink({ href, children }: LinkProps) {
 type SectionProps = {
   title: string;
   children: ReactNode;
+  collapsible?: boolean;
 };
 
-function Section({ title, children }: SectionProps) {
+function Section({ title, children, collapsible = false }: SectionProps) {
+  const baseClasses = 'rounded-2xl border border-zinc-200 bg-white shadow-sm';
+
+  if (!collapsible) {
+    return (
+      <section className={`${baseClasses} p-6`}>
+        <h2 className="text-lg font-semibold text-zinc-900">{title}</h2>
+        <div className="mt-3 text-sm leading-6 text-zinc-700">{children}</div>
+      </section>
+    );
+  }
+
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-zinc-900">{title}</h2>
-      <div className="mt-3 text-sm leading-6 text-zinc-700">{children}</div>
-    </section>
+    <details className={`${baseClasses} group`}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-6">
+        <h2 className="text-lg font-semibold text-zinc-900 select-none">
+          {title}
+        </h2>
+        <span
+          aria-hidden
+          className="text-xl text-zinc-500 select-none transition-transform duration-150 group-open:rotate-90"
+        >
+          ›
+        </span>
+      </summary>
+      <div className="px-6 pb-6 pt-3 text-sm leading-6 text-zinc-700">
+        {children}
+      </div>
+    </details>
   );
 }
 
@@ -61,19 +85,23 @@ export function Welcome() {
       <div className="mx-auto max-w-3xl px-4 py-10">
         <header className="mb-8">
           <p className="text-sm font-medium text-zinc-600">
-            Diploi Web App Starter Kit · React + Vite + Supabase
+            React + Vite + Supabase
           </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900">
-            Your dev environment is ready 🚀
+            Web App Starter Kit 🚀
           </h1>
           <p className="mt-3 text-base leading-7 text-zinc-700">
-            Your app, backend, and environment are already wired together so you
-            can start building immediately.
+            This is the React frontend for your app. Supabase is already
+            connected and ready to use.
           </p>
         </header>
 
         <div className="space-y-6">
-          <Section title="How development works on Diploi">
+          <Section title="Next steps, powered by ⚡ Supabase">
+            <SupabaseTodoDemo />
+          </Section>
+
+          <Section title="How development works on Diploi" collapsible>
             <ul className="list-disc pl-5">
               <li>
                 Your code runs in a cloud dev environment, so no need to install
@@ -115,7 +143,7 @@ export function Welcome() {
             </p>
           </Section>
 
-          <Section title="Infrastructure as Code with diploi.yaml">
+          <Section title="Infrastructure as Code with diploi.yaml" collapsible>
             <p>
               <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-[0.9em]">
                 diploi.yaml
@@ -140,7 +168,7 @@ export function Welcome() {
             </p>
           </Section>
 
-          <Section title="Environment variables (ENV) & secrets">
+          <Section title="Environment variables (ENV) & secrets" collapsible>
             <p>
               Each component's own environment variables are injected
               automatically. Values from other components can be imported via{' '}
@@ -165,10 +193,6 @@ export function Welcome() {
                 helper to access runtime environment variables.
               </li>
             </ul>
-          </Section>
-
-          <Section title="Next steps, powered by ⚡ Supabase">
-            <SupabaseTodoDemo />
           </Section>
         </div>
 

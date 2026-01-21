@@ -3,7 +3,7 @@
 
 insert into public.todos (task, is_complete)
 values
-	('Explore Supabase todo demo', true),
+	('Explore Web App Starter Kit demo', true),
 	('Edit the frontend and watch changes apply', false),
 	('Mark a task complete to test Supabase connection', false),
 	('Open diploi.yaml and explore the components', false),
