@@ -2,7 +2,7 @@ diploiVersion: v1.0
 type: starter
 name: Web App
 description: A modern, production-ready template for building full-stack React applications using React Router. AI friendly, SSR, TailwindCSS, TypeScript.
-previewImageUrls: [preview-1.jpg, preview-2.jpg]
+previewImageUrls: [preview-1.jpg, preview-2.jpg, preview-3.jpg]
 components:
   - name: React
     identifier: react
