@@ -89,6 +89,24 @@ export function Welcome() {
                 in the Diploi dashboard or via the Diploi CLI.
               </li>
             </ul>
+            <Callout tone="warn" title="Heads up">
+              <ul className="list-disc pl-5">
+                <li>
+                  ❌ Don't run{' '}
+                  <code className="rounded bg-white/60 px-1.5 py-0.5 text-[0.9em]">
+                    npm run dev
+                  </code>
+                  . App processes are managed via the Diploi dashboard.
+                </li>
+                <li className="mt-2">
+                  ✅ You can run{' '}
+                  <code className="rounded bg-white/60 px-1.5 py-0.5 text-[0.9em]">
+                    npm install
+                  </code>{' '}
+                  (or add deps), edit code, and run one-off scripts
+                </li>
+              </ul>
+            </Callout>
             <p className="mt-3">
               Docs:{' '}
               <ExtLink href="https://diploi.com/dev">
@@ -151,38 +169,6 @@ export function Welcome() {
 
           <Section title="Next steps, powered by ⚡ Supabase">
             <SupabaseTodoDemo />
-          </Section>
-
-          <Section title="Component system (important!)">
-            <p>
-              Components are managed services with their own lifecycle. That
-              means you generally <span className="font-medium">don’t</span>{' '}
-              start the dev server manually.
-            </p>
-
-            <Callout tone="warn" title="Heads up">
-              <ul className="list-disc pl-5">
-                <li>
-                  ❌ Don’t run{' '}
-                  <code className="rounded bg-white/60 px-1.5 py-0.5 text-[0.9em]">
-                    npm run dev
-                  </code>{' '}
-                  to start the app
-                </li>
-                <li className="mt-2">
-                  ✅ You can run{' '}
-                  <code className="rounded bg-white/60 px-1.5 py-0.5 text-[0.9em]">
-                    npm install
-                  </code>{' '}
-                  (or add deps), edit code, and run one-off scripts
-                </li>
-              </ul>
-            </Callout>
-
-            <p className="mt-4">
-              Diploi handles previews and hot reload based on your component
-              setup.
-            </p>
           </Section>
         </div>
 

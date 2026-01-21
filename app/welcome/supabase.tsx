@@ -42,20 +42,36 @@ export function SupabaseTodoDemo() {
 
     const fetchTodos = async () => {
       setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from('todos')
-        .select('id, task, is_complete, inserted_at')
-        .order('inserted_at', { ascending: false })
-        .limit(25);
 
-      if (fetchError) {
-        setError(fetchError.message);
-      } else {
-        const rows = (data ?? []) as TodoRow[];
-        setTodos(rows.map(normalizeTodo));
-        setError(null);
+      // Retry until Supabase returns a successful response.
+      // Adds a short delay between attempts to avoid tight looping on errors.
+      for (;;) {
+        const {
+          data,
+          error: fetchError,
+          status,
+        } = await supabase
+          .from('todos')
+          .select('id, task, is_complete, inserted_at')
+          .order('inserted_at', { ascending: false })
+          .limit(25);
+
+        if (!fetchError && status === 200) {
+          const rows = (data ?? []) as TodoRow[];
+          setTodos(rows.map(normalizeTodo));
+          setError(null);
+          setLoading(false);
+          return;
+        }
+
+        const message =
+          fetchError?.message ??
+          (status && status !== 200
+            ? `Unexpected status: ${status}`
+            : 'Unknown fetch error');
+        setError(message);
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
-      setLoading(false);
     };
 
     fetchTodos();
@@ -187,7 +203,9 @@ export function SupabaseTodoDemo() {
       )}
 
       {loading ? (
-        <p className="text-sm text-zinc-600">Loading todos…</p>
+        <p className="text-sm text-zinc-600">
+          Loading todos… Supabase is warming up, first load may take a moment!
+        </p>
       ) : hasTodos ? (
         <ul className="space-y-2">
           {todos.map(todo => {
