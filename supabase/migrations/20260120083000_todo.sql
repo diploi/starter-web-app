@@ -1,5 +1,3 @@
-create extension if not exists "pgcrypto";
-
 create table if not exists public.todos (
   id uuid primary key default gen_random_uuid(),
   task text not null,
