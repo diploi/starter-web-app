@@ -15,6 +15,6 @@ components:
         - supabase.ANON_KEY:SUPABASE_ANON_KEY
   - name: Supabase
     identifier: supabase
-    package: https://github.com/diploi/component-supabase#feature/migrations
+    package: https://github.com/diploi/component-supabase#v2026.02
     prebuildImage: ghcr.io/diploi/starter-web-app/supabase:[tag]
 addons: []
