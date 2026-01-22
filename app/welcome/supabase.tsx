@@ -34,7 +34,7 @@ export function SupabaseTodoDemo() {
   useEffect(() => {
     if (!supabase) {
       setError(
-        'Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your environment.'
+        'Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your environment.',
       );
       setLoading(false);
       return;
@@ -56,7 +56,7 @@ export function SupabaseTodoDemo() {
           .order('inserted_at', { ascending: false })
           .limit(25);
 
-        if (!fetchError && status === 200) {
+        if (!fetchError && status === 200 && (data ?? []).length > 0) {
           const rows = (data ?? []) as TodoRow[];
           setTodos(rows.map(normalizeTodo));
           setError(null);
@@ -70,7 +70,7 @@ export function SupabaseTodoDemo() {
             ? `Unexpected status: ${status}`
             : 'Unknown fetch error');
         setError(message);
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
     };
 
@@ -78,7 +78,7 @@ export function SupabaseTodoDemo() {
   }, [supabase]);
 
   const setPending = (id: string, value: boolean) => {
-    setPendingIds(prev => {
+    setPendingIds((prev) => {
       const next = new Set(prev);
       if (value) {
         next.add(id);
@@ -114,7 +114,7 @@ export function SupabaseTodoDemo() {
       setError(insertError.message);
     } else if (data) {
       const todo = normalizeTodo(data as TodoRow);
-      setTodos(prev => [todo, ...prev]);
+      setTodos((prev) => [todo, ...prev]);
       setNewTask('');
       setError(null);
     }
@@ -141,8 +141,8 @@ export function SupabaseTodoDemo() {
       setError(updateError.message);
     } else if (data) {
       const updated = normalizeTodo(data as TodoRow);
-      setTodos(prev =>
-        prev.map(item => (item.id === updated.id ? updated : item))
+      setTodos((prev) =>
+        prev.map((item) => (item.id === updated.id ? updated : item)),
       );
       setError(null);
     }
@@ -169,7 +169,7 @@ export function SupabaseTodoDemo() {
       return;
     }
 
-    setTodos(prev => prev.filter(item => item.id !== id));
+    setTodos((prev) => prev.filter((item) => item.id !== id));
     setPending(id, false);
     setError(null);
   };
@@ -182,7 +182,7 @@ export function SupabaseTodoDemo() {
         <input
           type="text"
           value={newTask}
-          onChange={event => setNewTask(event.target.value)}
+          onChange={(event) => setNewTask(event.target.value)}
           placeholder="Add a todo"
           className="flex-1 min-w-0 rounded-lg border border-zinc-200 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
           disabled={submitting}
@@ -208,7 +208,7 @@ export function SupabaseTodoDemo() {
         </p>
       ) : hasTodos ? (
         <ul className="space-y-2">
-          {todos.map(todo => {
+          {todos.map((todo) => {
             const pending = pendingIds.has(todo.id);
 
             return (
