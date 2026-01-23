@@ -1,3 +1,2 @@
 .diploi/
 .github/workflows/Prebuild.yaml
-.dockerignore
