@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
-  <title>React Logo</title>
-  <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
-  <g stroke="#61dafb" stroke-width="1" fill="none">
-    <ellipse rx="11" ry="4.2"/>
-    <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-    <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-  </g>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2967_6412)">
+<path opacity="0.2" d="M216 48H72C69.8783 48 67.8434 48.8429 66.3431 50.3431C64.8429 51.8434 64 53.8783 64 56V80H184C186.122 80 188.157 80.8429 189.657 82.3431C191.157 83.8434 192 85.8783 192 88V176H216C218.122 176 220.157 175.157 221.657 173.657C223.157 172.157 224 170.122 224 168V56C224 53.8783 223.157 51.8434 221.657 50.3431C220.157 48.8429 218.122 48 216 48Z" fill="#EC609C"/>
+<path d="M64 80V56C64 53.8783 64.8429 51.8434 66.3431 50.3431C67.8434 48.8429 69.8783 48 72 48H216C218.122 48 220.157 48.8429 221.657 50.3431C223.157 51.8434 224 53.8783 224 56V168C224 170.122 223.157 172.157 221.657 173.657C220.157 175.157 218.122 176 216 176H192" stroke="#EC609C" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M184 80H40C35.5817 80 32 83.5817 32 88V200C32 204.418 35.5817 208 40 208H184C188.418 208 192 204.418 192 200V88C192 83.5817 188.418 80 184 80Z" fill="#6650FA" fill-opacity="0.2" stroke="#6650FA" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 112H192" stroke="#6650FA" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_2967_6412">
+<rect width="256" height="256" fill="white"/>
+</clipPath>
+</defs>
 </svg>
