@@ -2,6 +2,10 @@
 
 # Web App Starter Kit for Diploi
 
+[![launch with diploi badge](https://diploi.com/launch.svg)](https://diploi.com/starter-kit/chat)
+[![component on diploi badge](https://diploi.com/component.svg)](https://diploi.com/starter-kit/chat)
+[![latest tag badge](https://badgen.net/github/tag/diploi/starter-web-app)](https://diploi.com/starter-kit/chat)
+
 A production-ready React Router + Supabase starter that showcases SSR, runtime ENV wiring, Tailwind CSS styling, and Supabase-backed data flows.
 
 This starter kit demonstrates:
