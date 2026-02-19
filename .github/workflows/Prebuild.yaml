@@ -4,7 +4,12 @@ on:
   push:
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: public.ecr.aws
+  PROJECT: p8t2q7f4/${{ github.repository }}
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   define-components:
@@ -31,11 +36,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::300197899440:role/ECRPrebuildPushRightsForGithubActionsRole
+          aws-region: us-east-1
+      - name: Login to Amazon ECR Public
+        id: login-ecr-public
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          registry-type: public
       - name: Diploi build
         uses: diploi/action-build@v1.8
         with: ${{ matrix }}
         env:
-          project: ${{ github.repository }}
+          project: ${{ env.PROJECT }}
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
