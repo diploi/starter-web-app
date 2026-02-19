@@ -8,7 +8,7 @@ components:
     identifier: react
     folder: /
     package: https://github.com/diploi/component-react-vite#v19.1.1
-    prebuildImage: ghcr.io/diploi/starter-web-app/react:[tag]
+    prebuildImage: public.ecr.aws/p8t2q7f4/diploi/starter-web-app/react:[tag]
     env:
       include:
         - supabase.APP_ENDPOINT:SUPABASE_URL
@@ -16,5 +16,5 @@ components:
   - name: Supabase
     identifier: supabase
     package: https://github.com/diploi/component-supabase#v2026.02
-    prebuildImage: public.ecr.aws/p8t2q7f4/diploi/component-supabase:[tag]
+    prebuildImage: public.ecr.aws/p8t2q7f4/diploi/starter-web-app/supabase:[tag]
 addons: []
