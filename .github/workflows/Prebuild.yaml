@@ -7,10 +7,6 @@ env:
   REGISTRY: public.ecr.aws
   PROJECT: p8t2q7f4/${{ github.repository }}
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   define-components:
     name: Define Components
@@ -27,7 +23,8 @@ jobs:
     name: Build ${{ matrix.name }} ${{ matrix.stage }}
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+      id-token: write
+      contents: read
     needs: define-components
     strategy:
       fail-fast: false
